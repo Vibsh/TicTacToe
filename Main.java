@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 class Main {
   public static void main(String[] args) {
     char[][] board = new char[3][3];
@@ -8,25 +7,21 @@ class Main {
         board[row][col] = ' ';
       }
     }
-
     char player = 'X';
     boolean gameOver = false;
     Scanner scanner = new Scanner(System.in);
-
     while (!gameOver) {
       printBoard(board);
       System.out.print("Player " + player + " enter: ");
       int row = scanner.nextInt();
       int col = scanner.nextInt();
       System.out.println();
-
       if (board[row][col] == ' ') {
         board[row][col] = player; 
         gameOver = haveWon(board, player);
         if (gameOver) {
           System.out.println("Player " + player + " has won: ");
         } else {
-         
           player = (player == 'X') ? 'O' : 'X';
         }
       } else {
@@ -35,7 +30,6 @@ class Main {
     }
     printBoard(board);
   }
-
   public static boolean haveWon(char[][] board, char player) {
     for (int row = 0; row < board.length; row++) {
       if (board[row][0] == player && board[row][1] == player && board[row][2] == player) {
@@ -56,7 +50,6 @@ class Main {
     }
     return false;
   }
-
   public static void printBoard(char[][] board) {
     for (int row = 0; row < board.length; row++) {
       for (int col = 0; col < board[row].length; col++) {
